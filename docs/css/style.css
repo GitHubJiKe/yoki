@@ -1,0 +1,76 @@
+:root {
+    --main-bg-color: #fff;
+    --main-text-color: #000;
+    color-scheme: light dark;
+}
+
+html,
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 12px;
+    border: 0;
+
+    overflow: hidden;
+}
+
+body {
+    background-color: light-dark(--main-bg-color, --main-text-color);
+    color: light-dark(--main-text-color, --main-bg-color);
+    height: 100dvh;
+    background-image: url(https://peiseka.com/Upload/mihuan/thumb/mihuan78.jpg);
+    transition: background-image 2s;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.left {
+    flex: 4;
+    text-align: center;
+    padding: 12px;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    margin: auto 0;
+    border-radius: 12px;
+}
+
+.avatar-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: medium;
+    text-align: center;
+    padding: 4px 0;
+    font-weight: 600;
+}
+
+.social-medias {
+    padding-top: 12px;
+    cursor: pointer;
+}
+
+.intro {
+    margin: 4px 0;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    padding: 0 24px;
+}
+
+.right {
+    flex: 8;
+}
