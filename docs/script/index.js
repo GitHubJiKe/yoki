@@ -3,7 +3,7 @@ function getBgURL(num) {
 }
 function changeBg() {
     
-    const nums = [18,24,55,78]
+    const nums = [1,2,3,4,5,6,7,18,24,55,78]
     let index=0
     setInterval(() => {
         if (index===3) {
