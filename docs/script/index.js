@@ -25,7 +25,7 @@ function changeBg() {
         } else {
             index += 1;
         }
-        document.body.style.backgroundImage = `url(${location.host}${getBgURL(
+        document.body.style.backgroundImage = `url(${getBgURL(
             readyNums[index],
         )})`;
     }, 2500);
