@@ -12,31 +12,42 @@ body {
     margin: 0;
     padding: 12px;
     border: 0;
-
-    overflow: hidden;
 }
 
 body {
-    background-color: light-dark(--main-bg-color, --main-text-color);
-    color: light-dark(--main-text-color, --main-bg-color);
-    height: 100dvh;
     background-image: url(https://peiseka.com/Upload/mihuan/thumb/mihuan78.jpg);
     transition: background-image 2s;
+    height: calc(100vh - 50px);
 }
 
 .container {
     display: flex;
     height: 100%;
+    flex-direction: column;
+}
+
+@media (max-width: 500px) {
+    html,
+    body {
+        font-size: 10px;
+    }
+    .left {
+    }
+    .works {
+        display: flex !important;
+        flex-direction: column !important;
+    }
 }
 
 .left {
-    flex: 4;
+    flex: 3;
     text-align: center;
-    padding: 12px;
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
-    margin: auto 0;
+    background-color: light-dark(rgba(255, 255, 255, 0.7), rgba(3, 3, 3, 0.7));
+    color: light-dark(rgba(3, 3, 3), rgba(255, 255, 255));
     border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 12px;
 }
 
 .avatar-box {
@@ -72,5 +83,22 @@ body {
 }
 
 .right {
-    flex: 8;
+    flex: 9;
+    padding: 12px 0;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.works {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.work {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    border-radius: 12px;
 }
