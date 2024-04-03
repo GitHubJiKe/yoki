@@ -4,11 +4,6 @@
     color-scheme: light dark;
 }
 
-
-
-
-
-
 html,
 body {
     font-family: "Architects Daughter", "Noto Sans SC", sans-serif;
@@ -22,7 +17,7 @@ body {
 }
 
 body {
-    background-image: url(https://peiseka.com/Upload/mihuan/thumb/mihuan78.jpg);
+    background-image: url(../asset/mihuan78.jpg);
     transition: background-image 2s;
     height: calc(100vh - 2.4rem);
 }
@@ -34,12 +29,10 @@ body {
 }
 
 @media (max-width: 500px) {
-
     html,
     body {
         font-size: 10px;
     }
-
 
     .works {
         display: flex !important;
@@ -50,6 +43,9 @@ body {
         justify-content: flex-start !important;
     }
 
+    .work-loading {
+        background-size: 10% !important;
+    }
 }
 
 .top {
@@ -145,13 +141,19 @@ body {
     background-color: #00b8a9;
 }
 
-
 .work {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     height: 40rem;
     border-radius: 1.2rem;
+}
+
+.work-loading {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5%;
+    background-image: url(../asset/loading.gif);
 }
 
 .swiper-button-prev::after,
