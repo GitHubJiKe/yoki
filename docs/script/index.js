@@ -1,5 +1,8 @@
 function getBgURL(num) {
-    return `../asset/mihuan${num}.jpg`;
+    if (location.host.includes("localhost")) {
+        return `../asset/mihuan${num}.jpg`;
+    }
+    return `/yoki/asset/mihuan${num}.jpg`;
 }
 const nums = [1, 2, 3, 4, 5, 6, 7, 18, 22, 55, 78];
 const readyNums = [];
