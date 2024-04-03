@@ -10,7 +10,7 @@ body {
     background-position: center;
     background-size: cover;
     margin: 0;
-    padding: 12px;
+    padding: 1.2rem;
     border: 0;
 }
 
@@ -44,10 +44,10 @@ body {
     text-align: center;
     background-color: light-dark(rgba(255, 255, 255, 0.7), rgba(3, 3, 3, 0.7));
     color: light-dark(rgba(3, 3, 3), rgba(255, 255, 255));
-    border-radius: 12px;
+    border-radius: 1.2rem;
     display: flex;
     justify-content: center;
-    padding: 12px;
+    padding: 1.2rem;
 }
 
 .avatar-box {
@@ -57,48 +57,90 @@ body {
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
 }
 
 .name {
-    font-size: medium;
+    font-size: 2.4rem;
     text-align: center;
-    padding: 4px 0;
+    padding: 0.2rem 0;
     font-weight: 600;
 }
 
 .social-medias {
-    padding-top: 12px;
+    padding-top: 1.2rem;
     cursor: pointer;
 }
 
 .intro {
-    margin: 4px 0;
-    font-size: 18px;
+    margin: 0.2rem 0;
+    font-size: 2rem;
     font-weight: 500;
     text-align: left;
-    padding: 0 24px;
+    padding: 0 20.2rem;
+    white-space: nowrap;
 }
 
 .right {
     flex: 9;
-    padding: 12px 0;
-    height: 300px;
+    padding: 1.2rem 0;
+    height: 20rem;
     overflow-y: auto;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+}
+.tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    background-color: light-dark(rgba(255, 255, 255, 0.7), rgba(3, 3, 3, 0.7));
+    color: light-dark(rgba(3, 3, 3), rgba(255, 255, 255));
+    cursor: pointer;
+}
+.tag:hover {
+    color: #00b8a9;
+}
+
+.types {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    gap: 0.6rem;
+}
+
+.type {
+    padding: 0.4rem 0.8rem;
+    background-color: light-dark(rgba(255, 255, 255, 0.7), rgba(3, 3, 3, 0.7));
+    color: light-dark(rgba(3, 3, 3), rgba(255, 255, 255));
+    cursor: pointer;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    flex: 1;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.type:hover {
+    color: #00b8a9;
 }
 
 .works {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 1.2rem;
 }
 
 .work {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 400px;
-    border-radius: 12px;
+    height: 40rem;
+    border-radius: 1.2rem;
 }

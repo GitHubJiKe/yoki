@@ -317,3 +317,41 @@ function genWorkEle(work) {
 }
 
 renderWorks();
+
+function getTags() {
+    return Array.from(
+        new Set(
+            works.reduce((a, c) => {
+                return a.concat(c.tags);
+            }, []),
+        ),
+    );
+}
+
+function renderTags() {
+    const tagEles = getTags().map((tag) => {
+        const ele = document.createElement("div");
+        ele.classList.add("tag");
+        ele.innerText = tag;
+        return ele;
+    });
+    document.body.querySelector(".tags").append(...tagEles);
+}
+
+renderTags();
+
+function getTypes() {
+    return Array.from(new Set(works.map((v) => v.type)));
+}
+
+function renderTypes() {
+    const typeEles = getTypes().map((type) => {
+        const ele = document.createElement("div");
+        ele.classList.add("type");
+        ele.innerText = type;
+        return ele;
+    });
+    document.body.querySelector(".types").append(...typeEles);
+}
+
+renderTypes();
