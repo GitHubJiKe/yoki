@@ -1,10 +1,12 @@
 function getBgURL(num) {
     return `https://peiseka.com/Upload/mihuan/thumb/mihuan${num}.jpg`;
 }
+
+
 function changeBg() {
     const nums = [1, 2, 3, 4, 5, 6, 7, 18, 24, 55, 78];
     let index = 0;
-    setInterval(() => {
+    return setInterval(() => {
         if (index === 3) {
             index = 0;
         } else {
@@ -13,8 +15,18 @@ function changeBg() {
         document.body.style.backgroundImage = `url(${getBgURL(nums[index])})`;
     }, 2500);
 }
-
-changeBg();
+let intervalId;
+function handleVisibleChange() {
+    if (document.visibilityState === 'visible') {
+        intervalId = changeBg()
+    } else {
+        if (intervalId) {
+            clearInterval(intervalId)
+        }
+    }
+}
+handleVisibleChange()
+document.addEventListener('visibilitychange', handleVisibleChange)
 
 const HOST = "https://bucket2023.oss-cn-hangzhou.aliyuncs.com/yoki/gallery/";
 
@@ -338,7 +350,7 @@ function renderTags() {
     document.body.querySelector(".tags").append(...tagEles);
 }
 
-renderTags();
+
 
 function getTypes() {
     return Array.from(new Set(works.map((v) => v.type)));
@@ -347,11 +359,12 @@ function getTypes() {
 function renderTypes() {
     const typeEles = getTypes().map((type) => {
         const ele = document.createElement("div");
-        ele.classList.add("type");
+        ele.classList.add("tag");
         ele.innerText = type;
         return ele;
     });
-    document.body.querySelector(".types").append(...typeEles);
+    document.body.querySelector(".tags").append(...typeEles);
 }
 
 renderTypes();
+renderTags();
