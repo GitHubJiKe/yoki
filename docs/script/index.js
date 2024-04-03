@@ -314,21 +314,63 @@ const works = [
         tags: ["图表", "数据分析", "插画"],
     },
 ];
+let swiper;
+function genSwiper() {
+    if (swiper) {
+        swiper.destroy()
+    }
+    const isDesktop = detectDeviceType() === 'Desktop'
+    swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: isDesktop ? 'horizontal' : 'vertical',
+        loop: true,
+        autoplay: true,
 
-function renderWorks() {
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        effect: 'coverflow',
+    });
+}
+
+// 输出 'Mobile' 或 'Desktop'
+function detectDeviceType() {
+    const ua = navigator.userAgent;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+    return isMobile ? 'Mobile' : 'Desktop';
+}
+
+
+function renderWorks(works) {
+    document.querySelector(".works").innerHTML = ''
     const eles = works.map((work) => genWorkEle(work));
-    console.log(works.length, eles);
     document.querySelector(".works").append(...eles);
+    genSwiper()
 }
 
 function genWorkEle(work) {
     const ele = document.createElement("div");
     ele.classList.add("work");
+    ele.classList.add("swiper-slide");
+    ele.setAttribute('data-swiper-autoplay', '2000')
     ele.style.backgroundImage = `url(${HOST}${encodeURIComponent(work.url)})`;
     return ele;
 }
 
-renderWorks();
+renderWorks(works);
 
 function getTags() {
     return Array.from(
@@ -340,11 +382,44 @@ function getTags() {
     );
 }
 
-function renderTags() {
-    const tagEles = getTags().map((tag) => {
+let selectedTagVals = []
+
+function handleTagClicked(e) {
+    if (selectedTagVals.includes(e.target.innerText)) {
+        const index = selectedTagVals.findIndex(v => v === e.target.innerText)
+        selectedTagVals.splice(index, 1)
+        e.target.classList.remove('active')
+    } else {
+        selectedTagVals.push(e.target.innerText)
+        e.target.classList.add('active')
+    }
+    const _works = getFilteredWorks(selectedTagVals)
+    _works.length ? renderWorks(_works) : renderWorks(works)
+
+}
+function hasIntersection(arr1, arr2) {
+    return arr1.some(item => arr2.includes(item));
+}
+function getFilteredWorks(vals) {
+    return works.filter(item => {
+        if (vals.includes(item.type)) {
+            return true;
+        }
+
+        if (hasIntersection(item.tags, vals)) {
+            return true;
+        }
+
+        return false;
+    })
+}
+
+function renderTags(tags) {
+    const tagEles = tags.map((tag) => {
         const ele = document.createElement("div");
         ele.classList.add("tag");
         ele.innerText = tag;
+        ele.addEventListener('click', handleTagClicked)
         return ele;
     });
     document.body.querySelector(".tags").append(...tagEles);
@@ -356,15 +431,7 @@ function getTypes() {
     return Array.from(new Set(works.map((v) => v.type)));
 }
 
-function renderTypes() {
-    const typeEles = getTypes().map((type) => {
-        const ele = document.createElement("div");
-        ele.classList.add("tag");
-        ele.innerText = type;
-        return ele;
-    });
-    document.body.querySelector(".tags").append(...typeEles);
-}
 
-renderTypes();
-renderTags();
+
+renderTags(getTypes());
+// renderTags(getTags());

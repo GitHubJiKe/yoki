@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yoki</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Noto+Sans+SC:wght@100..900&display=swap"
+        rel="stylesheet">
+    <script src="./script/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -13,9 +27,7 @@
         <div class="top">
             <div>
                 <div class="avatar-box">
-                    <img class="avatar"
-                        src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671140.jpg?size=338&ext=jpg&ga=GA1.1.1687694167.1711929600&semt=ais"
-                        alt="" srcset="" />
+                    <img class="avatar" src="./asset/avatar.avif" alt="yoki" srcset="" />
                 </div>
                 <div class="name">Yoki</div>
                 <div class="social-medias">
@@ -25,7 +37,7 @@
                         </path>
                     </svg>
                 </div>
-                <p class="intro">I am a creative UI/UE designer.</p>
+                <p class="intro gradient-text">我是一名富有创造力的UI/UE设计师</p>
             </div>
             <div>
                 <div class="tags"></div>
@@ -34,8 +46,18 @@
             </div>
         </div>
 
-        <div class="bottom">
-            <div class="works"></div>
+        <div class="swiper bottom">
+            <div class="swiper-wrapper works">
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
         </div>
     </main>
     <script src="./script/index.js"></script>
