@@ -9,25 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     });
 
-    // 添加滚动动画
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll(".animate__animated");
-        elements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementBottom = element.getBoundingClientRect().bottom;
-            const isVisible =
-                elementTop < window.innerHeight && elementBottom >= 0;
-
-            if (isVisible) {
-                element.classList.add("animate__fadeInUp");
-            }
-        });
-    };
-
-    // 监听滚动事件
-    window.addEventListener("scroll", animateOnScroll);
-    // 初始检查
-    // animateOnScroll();
 
     // 项目卡片悬停效果
     const projectCards = document.querySelectorAll(".project-card");
@@ -70,6 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 duration: 200,
                 easing: "easeInOutQuad",
             });
+        });
+    });
+
+
+    document.querySelectorAll('.project-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const title = link.getAttribute('href').split('#')[1];
+            window.location.href = `works.html#${title}`;
         });
     });
 });
